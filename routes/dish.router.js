@@ -145,7 +145,7 @@ dishRouter
  * /dishes/{dishId}:
  *   get:
  *     tags:
- *       - Dishe
+ *       - Dishes
  *     summary: Get a dish by id
  *     parameters:
  *       - in: path
@@ -178,7 +178,7 @@ dishRouter
  *               $ref: '#/components/schemas/Error'
  *   put:
  *    tags:
- *      - Dishe
+ *      - Dishes
  *    summary: Update a dish
  *    parameters:
  *      - in: path
@@ -187,6 +187,59 @@ dishRouter
  *          type: string
  *          required: true
  *        description: The dish id
+ *    security:
+ *      - bearerAuth: []
+ *    requestBody:
+ *      description: Dish object that needs to be added to the store
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/Dish'
+ *    responses:
+ *     200:
+ *      description: OK
+ *      content:
+ *        application/json:
+ *         schema:
+ *          type: object
+ *          properties:
+ *            status:
+ *              type: string
+ *              example: OK
+ *            data:
+ *              $ref: '#/components/schemas/Dish'
+ *     401:
+ *       description: Unauthorized
+ *       content:
+ *        text/plain:
+ *         schema:
+ *           $ref: '#/components/schemas/Unathorized'
+ *   delete:
+ *    tags:
+ *      - Dishes
+ *    summary: Delete a dish
+ *    parameters:
+ *      - in: path
+ *        name: dishId
+ *        schema:
+ *          type: string
+ *          required: true
+ *        description: The dish id
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *      200:
+ *        description: OK
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                status:
+ *                  type: string
+ *                  example: OK
+ *                data:
+ *                  $ref: '#/components/schemas/Dish'
  */
 
 // Dishes by id routes

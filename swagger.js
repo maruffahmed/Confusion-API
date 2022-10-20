@@ -11,6 +11,10 @@ const options = {
         name: "Dishes",
         description: "API for dishes in the restaurant",
       },
+      {
+        name: "Comments",
+        description: "API for comments on dishes",
+      },
     ],
   },
   apis: ["./routes/*.js", "./models/*.js", "./swagger/*.js"],
